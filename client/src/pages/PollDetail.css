@@ -1,0 +1,303 @@
+/* ------------------------------------------------ */
+/* 1. Global Reset & Typography */
+/* ------------------------------------------------ */
+body {
+    background-color: #f0f2f5; 
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; 
+}
+
+/* Hiệu ứng chuyển động nhẹ nhàng */
+button, a {
+    transition: all 0.2s ease-in-out; /* Tốc độ nhanh hơn */
+    text-decoration: none;
+}
+
+/* Container chính của trang (poll-detail-container) */
+.poll-detail-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Shadow sâu hơn, nhẹ hơn */
+    border-radius: 16px; /* Bo góc lớn hơn */
+}
+
+.loading-message, .error-message {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.error-message {
+    color: #dc3545; /* Màu đỏ của nút delete */
+}
+
+/* ------------------------------------------------ */
+/* 2. Header & Hành động trên cùng (Back, Delete) */
+/* ------------------------------------------------ */
+.top-actions {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* Nút Quay lại Trang chủ */
+.back-button {
+    padding: 10px 15px;
+    background-color: #e8f0fe; /* Màu nền nhẹ của Google Blue */
+    color: #1a73e8;
+    border: 1px solid #a8c7fa;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    background-color: #d2e3fc;
+    box-shadow: 0 2px 5px rgba(26, 115, 232, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Nút Xóa Poll */
+.delete-button {
+    padding: 10px 20px;
+    background-color: #dc3545; /* Màu đỏ cho hành động nguy hiểm */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(220, 53, 69, 0.3);
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(220, 53, 69, 0.4);
+}
+
+.poll-detail-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a73e8; 
+    border-bottom: 3px solid #e8f0fe;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* Khu vực Thích (Like Section) */
+.like-section {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; /* Đường kẻ mỏng hơn */
+}
+
+.like-button {
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #ff6b6b, #ee5253); /* Gradient mềm mại hơn */
+    color: white;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4); 
+}
+
+.like-button:hover {
+    transform: scale(1.05); /* Hiệu ứng phồng nhẹ */
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.6);
+}
+
+.like-count {
+    font-weight: 700;
+    color: #ff6b6b;
+    font-size: 1.1rem;
+    background-color: #ffeaea; /* Màu nền nhẹ nhàng */
+    padding: 8px 15px;
+    border-radius: 20px; /* Bo tròn capsule */
+}
+
+/* ------------------------------------------------ */
+/* 3. Layout Chính (Chart & Voting) */
+/* ------------------------------------------------ */
+.content-layout {
+    display: flex; 
+    gap: 50px; 
+    align-items: flex-start;
+}
+
+.chart-area {
+    flex: 2; /* Chart chiếm nhiều không gian hơn */
+    min-width: 400px;
+    padding-right: 20px;
+}
+
+.voting-options-area {
+    flex: 1; /* Voting chiếm ít không gian hơn */
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #f8f8f8; 
+    border: 1px solid #e0e0e0;
+}
+
+.chart-title, .vote-title {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-left: 5px solid #1a73e8; /* Điểm nhấn */
+    padding-left: 10px;
+}
+
+/* ------------------------------------------------ */
+/* 4. Nút Bỏ phiếu & Hành động (Vote, Download, Share) */
+/* ------------------------------------------------ */
+
+/* Nút Bỏ phiếu */
+.vote-button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #ffffff; 
+    border: 1px solid #a8c7fa; /* Viền nhẹ */
+    color: #1a73e8;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); 
+}
+
+.vote-button:hover {
+    background-color: #e8f0fe; 
+    border-color: #1a73e8; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow nổi bật */
+}
+
+.vote-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.total-votes-count {
+    margin-top: 25px;
+    color: #666;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+}
+
+
+/* Hành động Chart & Chia sẻ */
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Nút Tải xuống */
+.download-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+.download-button:hover {
+    background-color: #1e7e34;
+}
+
+/* Nút Chia sẻ */
+.share-twitter {
+    background-color: #1da1f2; /* Twitter Blue */
+    color: white;
+}
+
+.share-facebook {
+    background-color: #1877f2; /* Facebook Blue */
+    color: white;
+}
+
+.action-buttons button:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------------------ */
+/* 5. CSS Tương thích Màn hình (Responsiveness) */
+/* ------------------------------------------------ */
+@media (max-width: 992px) {
+    /* Chuyển sang layout dọc sớm hơn */
+    .content-layout { 
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .chart-area {
+        min-width: 100%;
+        padding-right: 0;
+    }
+
+    .voting-options-area {
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .poll-detail-container {
+        margin: 20px 10px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .poll-detail-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Điều chỉnh top-actions cho màn hình nhỏ */
+    .top-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch; 
+    }
+
+    .back-button, .delete-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .chart-title, .vote-title {
+        font-size: 1.4rem;
+    }
+
+    .action-buttons {
+        justify-content: space-between;
+    }
+    .action-buttons button {
+        flex-grow: 1; /* Các nút chia sẻ sẽ mở rộng ra */
+        margin-bottom: 10px;
+    }
+}
