@@ -7,7 +7,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     // Sửa thành URL Render khi deploy
-    const API_URL = "http://localhost:5000/api/polls"; 
+    const API_URL = "https://real-time-polling-app-3.onrender.com/api/polls"; 
 
     // Hàm lấy danh sách Polls hiện có
     const fetchPolls = async () => {
