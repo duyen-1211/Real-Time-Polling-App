@@ -9,8 +9,8 @@ import PollChart from '../components/PollChart';
 import './PollDetail.css'; 
 
 // URL API và Socket
-const API_BASE = "http://localhost:5000/api/polls"; 
-const SOCKET_SERVER_URL = "http://localhost:5000";
+const API_BASE = "http://https://real-time-polling-app-3.onrender.com:5000/api/polls"; 
+const SOCKET_SERVER_URL = "https://real-time-polling-app-3.onrender.com";
 
 const PollDetail = () => {
     const { id } = useParams();
